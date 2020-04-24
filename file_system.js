@@ -22,7 +22,7 @@ return res.end();
 // fs.open()
 // fs.writeFile()
 
-var fs = require('fs');
+
 fs.appendFile('mynewfile.txt', 'hello content', function (
 err) {
 if (err) throw err;
@@ -37,4 +37,31 @@ console.log('saved')
 // specified content, will be
 // created:
 
-//updating a file
+
+fs.open('mynewfile2.txt', 'w', function (err, file) {
+if (err) throw err;
+console.log('file two saved');
+});
+
+
+fs.appendFile('mynewfile1.txt', 'this is appendFile', function (err) {
+if (err) throw err;
+console.log('updated');
+});
+
+fs.writeFile('mynewfile.txt', 'fs.write replaces specified file and content', function (err) {
+if (err) throw err;
+console.log('Replaced');
+});
+
+//delete file
+fs.unlink('mynewfile1.txt', function (err) {
+if (err) throw err;
+console.log('file deleted');
+});
+
+//rename file
+fs.rename('mynewfile.txt', 'renamedfile.txt', function (err) {
+if (err) throw err;
+console.log('file renamed');
+});

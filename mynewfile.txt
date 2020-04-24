@@ -1,1 +1,1 @@
-hello content
+fs.write replaces specified file and content
